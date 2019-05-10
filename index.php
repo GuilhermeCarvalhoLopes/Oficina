@@ -1,18 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: farlen
- * Date: 27/08/2018
- * Time: 07:56
- */
+
 header("Content-type:text/html; charset=utf8");
 
-// recuperar arquivo da classe
 require_once "conexao/conexao.php";
-//criar um objeto do tipo cargo
+
 $mecanica = new mecanica();
 
-// chamar a funcao para listar todos cargos
 if(isset($_GET['pesquisa'])){
     $mecanica->pesquisa();
     $lista = $mecanica->pesquisa();
@@ -27,7 +20,7 @@ if(isset($_GET['salvar'])){
 if(isset($_GET['salvar'])){
     $mecanica->alterar();
 }
-//chamar a funcao excluir passando o codigo escolhido pelo usuário no botao excluir
+
 if(isset($_GET["id"])){
 $mecanica->excluir($_GET["id"]);
 }
@@ -42,23 +35,23 @@ $mecanica->excluir($_GET["id"]);
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <style>
-        /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+
         .row.content {height: 1500px}
 
-        /* Set gray background color and 100% height */
+
         .sidenav {
             background-color: #f1f1f1;
             height: 100%;
         }
 
-        /* Set black background color, white text and some padding */
+
         footer {
             background-color: #555;
             color: white;
             padding: 15px;
         }
 
-        /* On small screens, set height to 'auto' for sidenav and grid */
+
         @media screen and (max-width: 767px) {
             .sidenav {
                 height: auto;
